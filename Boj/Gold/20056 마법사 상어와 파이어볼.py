@@ -19,7 +19,6 @@ def move(r, c, s, d):
 
 
 def merge():
-
     for i in range(N):
         for j in range(N):
             if len(graph[i][j]) >= 2:
