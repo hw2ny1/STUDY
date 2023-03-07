@@ -1,19 +1,34 @@
 import sys
+import heapq
+input = sys.stdin.readline
 inf = sys.maxsize
 
-def min_index(list):
-    temp, index = inf, 0
-    for i in range(len(list)):
-        if list[i] < temp:
-            temp = list[i]
-            index = i
-    return i
+V,E = map(int,input().split())
+start = int(input())
+route = [[] for _ in range(V+1)]
+min_dist = [inf for _ in range(V+1)]
 
-def dijkstra(now):
-    visited[now] = True
-    for i in road[now]:
-        min_num = min_index(road[now])
-        if min_dist[i] > road[now]
+for _ in range(E):
+    x,y,z = map(int,input().split())
+    route[x].append([z,y])
 
-min_dist = [inf] * N
-visited = [False] * N
+def dijckstra(start):
+    q = []
+    heapq.heappush(q,[0,start])
+    min_dist[start] = 0
+    while q:
+        dist, now = heapq.heappop(q)
+        if min_dist[now] < dist:
+            continue
+        for nex in route[now]:
+            cost = min_dist[now] + nex[0]
+            if min_dist[nex[1]] > cost:
+                min_dist[nex[1]] = cost
+                heapq.heappush(q , [cost, nex[1]])
+
+dijckstra(start)
+
+for i in range(1,V+1):
+    if min_dist[i] == inf:
+        min_dist[i] = 'INF'
+    print(min_dist[i])
