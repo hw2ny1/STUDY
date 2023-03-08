@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div>
+    <p>자식</p>
+        <section>
+            <p>손자</p>
+        </section>
+    <p>자식</p>
+    </div>
+</body>
+<style>
+    div p {
+        color: blue;
+    }
+
+    div > p {
+        color: crimson;
+    }
+    /* 자식은 자식 까지만 적용되고 자손 자손 자손까지 적용된다 */
+</style>
+</html>
