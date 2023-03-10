@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contents">
+        <div class="box one">1</div>
+        <div class="box two">2</div>
+        <div class="box three">3</div>
+    </div>
+</body>
+<style>
+    .contents {
+        display: flex;
+        border: 1px dotted red;
+    }
+
+    .box {
+        border: 1px solid blue;
+
+        /* 플렉스 내용물 설정 */
+        /* flex-basis: 500px; */
+    }
+
+    .one {
+        /* order는 flex 순서 */
+        /* order: 2; */
+        /* 플렉스 크기 조절 */
+        /* flex : 0 1 40% */
+        /* 플렉스 축소 */
+        /* flex-shrink: 1; */
+    }
+
+    .two {
+        /* order: 3; */
+        /* flex: 1 1 auto;
+        flex-shrink: 2; */
+    }
+
+    .three {
+        /* order: 1; */
+        /* flex: 1 0 auto;
+        flex-shrink: 3; */
+    }
+</style>
+</html>

@@ -1,0 +1,54 @@
+.invaild {
+    background-color: red;
+    padding: 20px;
+}
+
+.login {
+    background-color: green;
+    padding: 10px;
+    text-align: center;
+}
+
+.box {
+    border-radius: 4px;
+    color: white;
+    width: 460px;
+}
+
+.flex-box {
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    color: black
+}
+
+.font {
+    font-weight: bold;
+}
+
+.flex {
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-in {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+body > div > hr {
+    width: 498px;
+    border: 1px solid skyblue;
+}
+
+.boxbox {
+    width: 480px;
+}
+
+hr {
+    width: 500px;
+}

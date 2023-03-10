@@ -1,0 +1,27 @@
+@media (max-width: 414px) {
+    span {
+        color: red;
+        font-size: xx-large;
+    }
+}
+
+@media (max-width: 375px) {
+    span {
+        color: blue;
+        font-size: x-large
+    }
+}
+
+@media (max-width: 360px) {
+    span {
+        color: green;
+        font-size: large
+    }
+}
+
+@media (max-width: 280px) {
+    span {
+        color: violet;
+        font-size: small
+    }
+}
