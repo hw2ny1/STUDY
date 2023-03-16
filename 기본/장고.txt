@@ -1,0 +1,29 @@
+pip install django==3.2.18
+django-admin startproject 이름 .찍으면 풀어서 생성
+python manage.py runserver
+python -m venv venv(이름 아무거나)
+source venv/Scripts/activate
+deactivate
+pip freeze > requirements.txt
+pip install -r requirements.txt
+python manage.py runserver 서버 실행 컨트롤C하면 꺼짐
+python manage.py startapp 이름 앱 생성
+settings.py 에서 Installed apps에 추가해 줘야함 , 빼면 오류남
+
+
+python manage.py shell_plus or shell
+Class.objects.all()
+생성 방법
+1
+초기화 = Class
+초기화.ㅇㅇ = ㅁㄴㅇㄹ
+초기화.save()
+2
+초기화 = class(ㅇㅇ = ㅁㄴㅇㄹ)
+초기화.save()
+3
+Class.objects.create(ㅇㅇ = ㅁㄴㅇㄹ)
+
+조회
+Class.object.get(id or pk)
+Class.object.get(ㅇㅇ = ㅁㄴㅇㄹ)
