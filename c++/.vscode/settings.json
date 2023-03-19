@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "xstddef": "cpp",
+        "functional": "cpp"
+    }
+}
