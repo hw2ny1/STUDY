@@ -31,3 +31,6 @@ Class.objects.create(ㅇㅇ = ㅁㄴㅇㄹ)
 조회
 Class.object.get(id or pk)
 Class.object.get(ㅇㅇ = ㅁㄴㅇㄹ)
+
+Admin site
+

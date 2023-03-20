@@ -81,7 +81,7 @@
 - Display
   - block과 inline 설정 가능하다.
   - text-align으로 정렬 할 때, iline이 아닌 block에 정렬해 줘야함.
-  - inline-block을 ㅇㅇㅇ쓰면 linine처럼 한 줄에 표시 가능하고, block처럼 width, height, margin 속성가짐.
+  - inline-block을 쓰면 linine처럼 한 줄에 표시 가능하고, block처럼 width, height, margin 속성가짐.
   - none : 화면에 표시하지 않고, 공간 부여안됨. visibility : hidden은 공간차지하고 표시 안됨.
 - Position
   - static : 모든 태그의 기본 값. 일반적인 요소의 배치 순서에 따름. 부모 요소 내에서 배치시 부모 요소의 위치 기준으로 배치됨
