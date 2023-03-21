@@ -1,7 +1,8 @@
 https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/
 django filter 참고
 https://himanmengit.github.io/django/2018/02/23/Built-In-Template-Filter.html
-
+https://velog.io/@may_soouu/Django-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%A0%95%EB%A6%AC
+https://pythonblog.co.kr/blog/21/
 *list 출력
 
 재사용성
