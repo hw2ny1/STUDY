@@ -1,6 +1,6 @@
 import random
 study_members = ['민구','창현','정우','정희','성환','세영','혜민','영록']
-bad_guys = ['창현','민구','정희','성환','세영','혜민','영록']
+bad_guys = []
 try:
     problem_list = []
     while True:

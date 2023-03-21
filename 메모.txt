@@ -1,4 +1,6 @@
 https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/
+django filter 참고
+https://himanmengit.github.io/django/2018/02/23/Built-In-Template-Filter.html
 
 *list 출력
 
