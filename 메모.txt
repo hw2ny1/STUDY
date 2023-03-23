@@ -3,10 +3,12 @@ django filter 참고
 https://himanmengit.github.io/django/2018/02/23/Built-In-Template-Filter.html
 https://velog.io/@may_soouu/Django-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%A0%95%EB%A6%AC
 https://pythonblog.co.kr/blog/21/
-*list 출력
+https://integer-ji.tistory.com/358
+https://velog.io/@kti0940/Visual-Studio-Code%EC%97%90%EC%84%9C-HTML%EA%B3%BC-Django-HTML-%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95
+https://hwan-hobby.tistory.com/221
 
 재사용성
-
+*list 출력
 https://haesoo9410.tistory.com/193
 string.sort(key= lambda x : (x[0],x[1])) <- 조건 2개 정렬할때
 
