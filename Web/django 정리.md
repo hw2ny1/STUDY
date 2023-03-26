@@ -51,4 +51,46 @@
 
     ex) {% url 'articles:index' %}
 
-  - 
+
+
+- Authentication System
+
+  - 커스텀 유저 모델을 사용하기 위해서 settings.py에 AUTH_USER_MODEL = 'auth.User'을 추가해 줘야함.
+
+  - models에 from django.contrib.auth.models import AbstractUser 해주고 User 작성.
+
+  - admin site에 등록하기 위해 djang.contrib.auth.admin import UserAdmin 해주고 
+
+    admin.site.register(User,UserAdmin)
+
+  - from django.contrib.auth import login as auth_login
+
+  - form = AuthenticationForm(request, request.POST)
+
+  - auth_login(request, form.get_user()) 에서 get_user() 은 AuthenticationForm의 매서드.
+
+  - settings에서 설정되어 있기 때문에, context 없이도 user 변수를 사용할 수 있다. 
+
+  - logout은 from django.contrib.auth import logout as auth_logout해주고  auth_logout(request)
+
+- Authentication System 활용
+
+  - 회원 가입 페이지 작성은 User CreationForm 사용, Post로 받아 온 후 is_valid()후 save()
+  - 커스텀form 이용시 오류가 뜨므로 UserCreationForm() 커스텀 필요
+  - django.contrib.auth.forms import UserCreationForm, UserChangeForm 이용
+  - UserCreationForm을 요소로 하는 클레스에서 Meta(UserCreationForm.Meta): model = get_user_model() 작성. UserChangeForm도 동일하게 작성.
+  - form.save()에서 user값을 반환하므로 그 값으로 login하면 됨.
+  - UserChangeForm사용시 instance = request.user 인자로 넘기기.
+  - fields = ('설정')시 필요한 값만 노출 가능.
+  - 비밀번호 변경 페이지는 PasswordChangeForm 사용하여 동일하게 진행.
+  - 비밀번호 변경후 로그인 유지를 위해 update_session)_auth_hash(request, form.user) 사용
+
+- HTTP decorators
+
+  - django.views.decorators.http 에서 import
+  - require_http_methods, post, safe 등 사용 가능
+
+- Limiting access
+
+  - request.user.is_authenticated를 이용하여 로그인과 비로그인 상태에서의 차이 출력 가능.
+  - if request.user.is_authenticated를 이용하여 로그인 로직 수행할 수 없게 처리 가능.

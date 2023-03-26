@@ -1,21 +1,42 @@
-flex 
-grid
-부트스트랩 grid 에서 쓸수 없는 옵션
-마진 10 10 10 10 줬을때 뭘 의미할까
+staticfiles_dirs = [ base_dir / 'static']
+static_url = '/static/'
 
-css 선택자 우선순위 꼭 외우기
-부트스트랩으로 중앙 가운데정렬 할려면?
-마진 0 auto는 축 가운데 정렬?
-position 속성
-디스플레이 블록*2이랑 인라인 속성*3 태그 주고? 아닌거 고르기?
-디스플레이 none, visivility hidden 관련 2문제이상
-grid 7문제이상
-html element 잘못된거 고르기
-동시에 색 입혀두고 우선순위
-제일 많이 만드는 클레스 이름
-그리드 가로는 몇 col?12
-cdn 기억해
-가운데정렬 뭐에 들어갈거 채워라 두개 쓴데요 중앙 가운데 정렬
-부트스트렙에서 저스티파이 컨텐트 센터 넣을려면 어떻게?
-배치되는거 설명하기 서술형 class랑  id 동시에 사용
-그리드 많다
+load static 먼저 한후에
+url에 static 정적 주소 혹은 추가경로 주소
+
+media_root = base_dir/'media'
+media_url = '/media/'
+
+후에 urls에서  from django.conf.urls.static import static 하고 +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+imagefield 사용할땐 enctype="multipart/form-data" 넣어줘야함.. 그리고 request.POST에 추가로 request.FILES 로 받아야 함.
+
+
+- 커스텀 유저 모델을 사용하기 위해서 settings.py에 AUTH_USER_MODEL = 'auth.User'을 추가해 줘야함.
+
+
+admin.site.register(User,UserAdmin)
+
+
+form = AuthenticationForm(request, request.POST)
+
+
+auth_login(request, form.get_user()) 에서 get_user() 은 AuthenticationForm의 매서드.
+
+
+django.contrib.auth.forms import UserCreationForm, UserChangeForm 이용
+
+
+UserCreationForm을 요소로 하는 클레스에서 Meta(UserCreationForm.Meta): model = get_user_model() 작성. UserChangeForm도 동일하게 작성.
+
+
+UserChangeForm사용시 instance = request.user 인자로 넘기기.
+
+
+비밀번호 변경후 로그인 유지를 위해 update_session_auth_hash(request, form.user) 사용
+
+
+django.views.decorators.http 에서 import require_http_methods, post, safe 등 사용 가능
+
+
+request.user.is_authenticated
