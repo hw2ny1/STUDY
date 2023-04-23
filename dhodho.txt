@@ -1,0 +1,156 @@
+* JsonResponse로 응답하기
+
+from django.http.response import JsonResponse
+
+model_all = model.objects.all()
+model_json = {} <- model_all의 데이터 추가
+
+return JsonResponse(model_json, safe=False)
+
+여기서 safe=False는 기본값이 True이고 이때는 dic만, False로 설정할 시 모든 타입의 객체를 serializtion 할 수 있음.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* django serializer를 사용한 응답
+
+from django.http.response import HttpResponse
+from django.core import serializers
+
+model_all = model.objects.all()
+data = serialiaers.serialize('json', model_all)
+return HttpResponse(data, content_type='applications/json')
+
+직렬화를 사용하여 json으로 변경후 응답
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* django REST framework 사용한 응답
+
+settings.py 의 INSTALLED_APPS에 rest_framework 추가
+
+serializers.py 를 생성한 후,
+from rest_framework import serializers
+from rest_framework.response import Response
+from .model import *
+
+class ModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Model
+        fields = '__all__'
+
+작성한 후, views 함수에서
+
+model_all = model.objects.all()
+serializer = ModelSerializer(model_all, many=True)
+return Response(serializer.data)
+
+여기서 many=True는 여러 값을 한번에 serializer 할 수 있음.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* json 응답 받기
+
+import requests
+
+response = request.get('URL')
+result = response.json()
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* ModelSerializer 작성
+
+from rest_framework import serializers
+from .model import *
+
+class ModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Model
+        fields = ('id','title','content', etc)
+
+serialize.data -> ordereddict 형태
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* api_view 데코레이터
+
+from django.rest_framework.decorators import api_view
+
+@api_view(['api 종류'])
+
+DRF에서 데코레이터 작성은 필수
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* GET - List, Detail
+
+-> 그냥 serializer
+
+* POST - Created
+
+-> from rest_framework import status
+
+serializer(data = request.data) 로 데이터 받아 온 후 is_valid 확인 후 save()
+
+return Response(serializer.data, status = HTTP_XXX_~~~)
+ 
+return status = status.HTTP_400_BAD_REQUEST 대신에 is_valid(raise_exception=True) 하면 예외처리기로 자동 처리.
+
+* DELETE - Delete
+
+-> model.delete() 후 return response(status=status.HTTP_204_NO_CONTENT)
+
+* PUT - Update
+
+-> serializer = ModelSerializer(model, data=request.data)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* N:1 관계 저장시
+
+save(Forghinkey = model) 해서 저장.
+
+serializers.py에서 read_only_fields = ('model',) 저장.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* 역참조 데이터 조회
+
+serializers.py에서 class에 set 메서드 model_set = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
+이거보단
+
+serializers.py 에서 class에 set메서드에 model_set = 종속된 serializer(many=True, read_only=True)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* 갯수 출력
+
+serializers.py 에서 model_count = serializers.IntegerField(source='model_set.count',read_only=True)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* 해당 객체가 없을 때 오류처리
+
+model = get_object_or_404(Model, pk=pk)
+
+model = get_list_or_404(Model)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+* to_representation()
+
+필드명 수정, 필요없는 필드 삭제를 편하게.
+
+def to_representation(self, instance):
+    rep = super().to_representation(instance)
+    rep.pop('article',None)
+    return ori_rlt
+
+또한 상속을 하여 추가적인 정보 출력 가능, class Meta(상속.Meta): 로 상속 후,
+fields = SM.Meta.fields + (추가적 정보)
+
+----------------------------------------------------------------------------------------------------------------------------------
