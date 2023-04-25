@@ -38,3 +38,17 @@ this가 생성자로 쓰일 때 미래 생성자 함수?
 캡처링과 버블링
 
 lodash
+
+동기와 비동기 -> '동시'가 아닌 '순서'에 대해 생각하자
+동기 -> 순서대로 ,  비동기 -> 순서에 상관없이
+
+Call Stack - 요청이 들어올 때 마다 순차적으로 처리하는 LIFO
+Web API - javascript 엔진이 아닌 브라우저에서 제공하는 runtime 환경( 시간이 소요되는 작업을 처리)
+Task Queue - 비동기 처리된 Callback 함수가 대기하는 Queue(FiFo)
+Event Loop - Call Stack과 Task Queue를 지속적으로 모니터링
+
+consol.log만 찍어도 undefined가 출력 되는 이유 REPL
+
+promise를 안쓸시, callback 지옥, 실패에대한 보장X
+
+callback -> promise -> async/await -> axios
