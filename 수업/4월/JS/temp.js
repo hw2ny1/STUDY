@@ -30,16 +30,29 @@
 
 // getData()
 
-async function slowRequest(callBack){
-    console.log('1')
-    await setTimeout( function() {
-        callBack()
-    }, 1000)
+// function slowRequest(callBack){
+//     console.log('1')
+//     setTimeout( function() {
+//         callBack()
+//     }, 1000)
+// }
+
+// function myCallBack(){
+//     console.log('2')
+// }
+
+// slowRequest(myCallBack)
+// console.log('3')
+
+function a(){
+    if (true){
+        var zz = "asdf"
+        let xx = "basdf"
+        const cc = "gdsf"
+    }
+    console.log(zz)
+    console.log(xx)
+    console.log(cc)
 }
 
-function myCallBack(){
-    console.log('2')
-}
-
-slowRequest(myCallBack)
-console.log('3')
+a()
