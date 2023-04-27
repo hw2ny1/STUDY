@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app">
+        <p id = "name">name : {{message}}</p>
+        <input v-model="message" type="text">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+    <script>
+        // const name = document.querySelector('p')
+        // const input = document.querySelector('input')
+        // input.addEventListener("input", function(e){
+        //     name.innerText = name.innerText + e.target.value
+        // })
+
+        const app = new Vue({
+            el : document.querySelector('#app'),
+            data : {
+                message : '너무 피곤해요',
+                find : function(){
+                    console.log(this)
+                }
+            },
+            methods: {
+                print() {
+                    console.log(this)
+                }
+            }
+        })
+
+        const app2 = new Vue({
+            el : document.querySelector('#app'),
+            data : {
+                message : '너무 피곤해요',
+                find : () => {
+                    console.log(this)
+                }
+            },
+            methods: {
+                print : () => {
+                    console.log(this)
+                }
+            }
+        })
+
+        console.log(this)
+    </script>
+</body>
+</html>
