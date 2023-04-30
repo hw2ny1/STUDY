@@ -1,35 +1,234 @@
 객
 1. 배열에 고차함수가 있었다. 고차함수는 chaining을 할 수 있다. 그때 결과값?
+map(function), filter(function), reduce(functions(acc,cur, index, arr){},initialVal)
 2. 문법 주고 옮은것
 3. 배열 고차함수 옳은 것? 9개 배웠는데 아닌거 섞여있음 이름기억하자
+map, filter, reduce, reverse, push, pop, unshift, shift, includes, indexOf
 4. callback 함수에 대한 설명으로 옳지 않은것
+다른 함수의 인자로 전달되는 함수.
 5. for 키워드를 이용한 반복문 중 하나가 나옴. 그때 결과
+in은 속성 of는 인덱스
 6. JS 함수로 옳지 않은것
 7. json에 대해서 옳은것? 아닌것?
+json은 형식있는 문자열 타입이라 객체로 변환해 주어야한다.
 8. 오브젝트가 있는데 a라는 키로 b라는 값이 있을 때, 거기서 a에 접근 하려면? 여러 방법 있음
+.찍거나 []쓰겠지. 근데 공백이나 구분있으면 []
 9. 어떤 객체에 키와 값이 같으면 축약 할 수 있다.
+ㅇㅇ 축약해서 하나로 쓰면됨
 10. 보기 4개중 데이터 타입이 number가 아닌것. 수학적인 무언가?
 1. for 문에 대해서 오류, let 초기화문 위주로 공부. 어떤 에러가 날지 공부
+근데 for문에서는 const 쓰면 재할당을 하기에 오류가 나지만 in이나 of에서는 새로 만드는 것이기에 오류X
 2. 식별자로 사용할 수 있는것
+$ 혹은 _ 혹은 문자로 시작해야함.
 3. a라는 클레스를 적용하는 방법. 스크립트로 클레스를 추가하는 방법
+element.classList.add('className')
+element.classList.toggle('className')
 4. 콜스택, 뭘하는 건지
+요청이 들어올때마다 순차적으로 처리하는 stack LIFO
 5. 함수 표현식에 대해서 옳은것
 6. 화살표 함수 옳지 않은
+리턴 중괄호나 인자 있을때 없을때 소괄호?
 7. js 배열에서 옳지 않은것
 8. 함수를 어디서 선언했느냐에 따라서? 스코프
 9. 3개의 연산자를 써서 조건을 처리할때
+삼항 연산자 조건 ? 참 : 거짓
 10. === 일치 연산자에 대해서 옳지 않은것
-
+타입, 값이 다 일치해야함 엄격한 검사
 단
 1. 코드에서 this가 가르키는 것
 2. 코드에서 출력값
 3. 이벤트를 중단시키는 코드
+event.preventDefault()
 4. 몇초뒤 역할을 하는 함수. 비동기 함수
+setTimeout()
 5. 오브젝트 축약 표현
+
 6. js의 최상위 객체의 이름
+prototype
 7. 특정 이벤트를 실행 시키면 함수를 알아야 한다. 첫번째 매개변수 자리에 뭘 넣는지
+이벤트 유형, type
 8. 질문의 결과? 
 
 서
 1. 값이 없을 때 들어가는 데이터 타입 두개에 대한 차이, 타입을 찍으면 object가 나온다. 왜그런지 공부
+null과 undefined는 모두 값이 없음을 나타내지만 null은 개발자가 명시적으로 없음을 지정한것이고 undefined는
+할당되지않은 것. null이 object인 이유는 자바스크립트 엔진이 하위타입으로 취급하기 때문.
 2. 코드의 결과 및 이유를 설명. 비동기 시간에 제일 먼저 찍었던것과 흡사.
+
+------------------------------------------------------------------------------------------------------------------------
+
+JS
+- 자바스크립트란 HTML문서의 컨텐츠를 동적으로 변경할 수 있는 언어.
+
+식별자 - 변수를 구분할 수 있는 변수명
+$ _ 문자로 시작하고 대소문자를 구분하며 예약어(for, if, function 등) 사용 불가
+카멜 케이스, 파스칼 케이스, 대문자 스네이크 케이스 등이 있다.
+
+변수 선언 키워드 - let, const, var
+
+호이스팅(hoisting) - 선언 이전에 참조할 수 있는 현상. 변수 선언 이전의 위치에서 접근 시 undefined를 반환
+함수 선언식도 호이스팅이 됨
+var name
+console.log(name)
+var name = 'name' 으로 인식
+
+       재선언    재할당    스코프
+let       X          O        블록
+const   X           X        블록
+var      O          O        함수
+
+배열에서 파이썬처럼 [-1] 안됨. length-1로 해야함
+
+함수 ( function) - 함수 선언식, 함수 표현식
+
+function name(){} or type name = function(){} or type name = function namesub(){}
+근데 마지막 방식에서 namesub는 호출에 쓸 수 없음
+함수에서 인자 불일치 허용한다 대신 undefined로 넘어감
+
+화살표 함수
+let noArgs = () => 'No args'
+let noArgs = _ => 'No args'
+let returnObject = () => { return { key : val } }
+let returnObject = () => ( { key : val } )
+
+== 와 === 차이 - ===는 엄격한 비교 ( 타입과 값이 일치)를 통해서 bool타입 반환
+
+삼항연산자 변수 = 조건식 ? 참 : 거짓
+이건 c++에서도 사용할 수 있다.
+
+스프레드 연산자 ( spread operator ) - [...array , etc...]  -> extend해줌, 얕은복사를 위해서도 활용 가능
+
+반복문에는 while / for / for in / for of / array.forEach 가 있다.
+for in 사용시 객체의 속성을 순회 ( key값을 순회하는 듯 그러나 순서대로 한다는 보장은 없다. )
+for of 는 iterable한 객체의 종류 순회
+정리하면 in은 속성의 이름, of는 속성의 값을 통해 반복
+for문에서는 const 쓰면 재할당을 하기에 오류가 나지만 in이나 of에서는 새로 만드는 것이기에 오류X
+
+this - 어떠한 object를 가리키는 키워드. 인스턴스 자신을 가리킴. 근데 해당 함수 호출 방식에 따라 바인딩 되는 객체가 달라짐.
+1. 전역 문맥에서는 최상위 객체인 window를 가리킴
+2. 단순 함수 호출에서는 window를 가리킴
+3. 객체의 메서드로서 선언하고 호출한다면 객체에 바인딩이 됨.
+4.  Nested
+const myObj = {
+numbers: [1],
+myFunc() {
+console.log(this) // my Obj
+this.numbers.forEach(functions (num){
+console.log(num) // 1
+console.log(this) // window
+})
+}
+}
+
+const myObj = {
+numbers: [1],
+myFunc() {
+console.log(this) // my Obj
+this.numbers.forEach(functions ((num) =>{
+console.log(num) // 1
+console.log(this) // myObj
+})
+}
+}
+
+화살표 함수에서 this는 자신을 감싼 정적 범위. 한단계 상위의 scope를 가리킴.
+
+화살표함수는 lexical scope - 어디서 호출하는지가 아니라 어디에 선언하였는지에 따라 결정.
+
+배열에서 메서드 - reverse, push, pop, unshift, shift, includes, indexOf
+reverse,push,pop은 python과 동일
+includes는 참거짓으로 반환, indexOf는 제일 첫번째로 찾은 원소 반환 없을시 -1
+추가로 forEach, map, filter, reduce, find, some, every
+for Each는 반환값이 없다. 인자로 (elem, index, array)를 넘겨 받는다.
+map은 반환값을 요소로하는 배열을 반환, filter도 동일, reduce도 반환
+
+콜백 함수 -  다른 함수의 인자로 전달되는 함수를 얘기한다.
+
+객체 - 속성의 집합으로 key와 value의 쌍으로 표현.
+객체 요소접근은 . 또는 []로 가능, 그러나 key에 띄어쓰기 같은 구분자가 있으면 []로만 가능
+
+객체 생성자는 new를 이용해서 사용 가능. 함수 이름은 대문자로 시작
+
+객체 관련 문법
+- 객체를 정의할때 key와 변수이름이 같으면 축약 가능
+const temp = {
+something,
+else
+}
+- 객체에서 메서드 선언 시 function 키워드 생략 가능
+- 객체를 분해하여 속성을 변수에 쉽게 할당할수도 있다. 구조분해할당
+class = { name : val, id : val, email : val }
+const { name } = class
+const { id, email } = class
+- 객체에서 spread syntax 사용 가능
+- 객체와 json은 다르다. json은 형식이 있는 문자열, 그래서 변환해 줘야함
+Object -> JSON : JSON.stringify
+JSON -> Object : JSON.parse
+
+DOM : 문서객체모델, 문서의 구조화된 표현을 제공.
+HTML 문서를 구조화 하여 각 요소를 객체로 취급
+
+Document Node -> HTML 문서 전체를 나타내는 노드
+Element Node -> HTML 요소를 나타내는 노드 ex) <p>
+Text Node -> HTML 텍스트, Element Node 내의 텍스트 컨텐츠를 나타냄
+Attribute Node -> HTML 요소의 속성을 나타내는 노드
+
+DOM의 주요 객체 window, document
+window - 최상위 객체, 탭기능이 있는 브라우저에서 각각의 탭을 나타냄
+document - window의 속성
+
+선택관련 메서드
+document.querySelector() or document.querySelectorAll()
+-> #은 id, .은 class,
+All은 NodeList를 반환하지만 push pop을 제외한 배열 메서드 사용가능하고 index로 항목에 접근 가능. 실시간 반영 안해준다.
+
+document.createElement(tagname) HTML 요소를 생성하여 반환
+HTMLElement.innerText
+Node. appendChild()
+NOde.removeChild()
+
+Element.getAttribute(name)
+Element.setAttribute(name, value)
+Element.setAttribute(name, value)
+Element.classList,Element.style을 통해 속성 제어 가능
+
+Event란 HTML 요소에서 발생하는 모든 상황을 의미
+
+DOM요소는 Event를 받고 받은 Event를 처리할 수 있다. 처리는 주로 addEventListener() 메서드를 사용
+
+EventTarget.addEventListener(type, handler function)
+type 에는 input, click, sumbit등 이벤트 유형 들어감
+handler function 에는 콜백함수로 event객체를 매개변수로 받음
+
+evnet 전파 - 상위노드에서 하위노드 혹은, 하위노드에서 상위노드로 전파되는 현상
+event.preventDefault() - 현재 Event의 기본 동작을 중단
+
+lodash - 모듈성, 성능 및 추가기능을 제공하는 JavaScript 유틸리티 라이브러리 -> 간편한 유틸리티 함수들을 제공
+
+addEventListener에서 콜백은 특별하게 function 키워드의 경우 호출대상을 뜻한다. 그러나 화살표는 상위스코프 가리킴
+
+동기와 비동기 -> '동시'가 아닌 '순서'에 대해 생각하자
+동기 -> 순서대로 ,  비동기 -> 순서에 상관없이
+
+Call Stack - 요청이 들어올 때 마다 순차적으로 처리하는 LIFO
+Web API - javascript 엔진이 아닌 브라우저에서 제공하는 runtime 환경( 시간이 소요되는 작업을 처리)
+Task Queue - 비동기 처리된 Callback 함수가 대기하는 Queue(FiFo)
+Event Loop - Call Stack과 Task Queue를 지속적으로 모니터링
+
+consol.log만 찍어도 undefined가 출력 되는 이유 REPL
+
+promise를 안쓸시, callback 지옥, 실패에대한 보장X
+
+callback -> promise -> async/await -> axios
+
+AJAX란? 비동기식 JS와 XML
+비동기 통신을 이용하여 전체를 새로고침 하지 않아도 서버로 요청하여 일부분 업데이트 가능.
+1. 페이지 새로고침 없이 서버에 요청
+2. 서버로부터 데이터를 받아 작업을 수행
+
+자바 스크립트는 어떤 특징을 가진 언어인가?
+- 싱글 스레드, 동시성, 프로토타입 기반의 객체 프로그래밍.
+- 동적타입언어, 함수형 프로그래밍.
+
+'프로토타입' -> 부모객체 : 생성자 함수로 new를 통해 만든다. 상속;
+생성자, __proto__
